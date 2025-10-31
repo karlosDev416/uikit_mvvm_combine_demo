@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZSn-Je-5IV">
-                                <rect key="frame" x="24" y="371.66666666666669" width="345" height="108.66666666666669"/>
+                                <rect key="frame" x="24" y="349.66666666666669" width="345" height="153"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-WD-fEc">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="28.666666666666668"/>
@@ -25,8 +26,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWk-CC-H8R">
+                                        <rect key="frame" x="0.0" y="52.666666666666629" width="345" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yH-sv-NVN">
-                                        <rect key="frame" x="0.0" y="52.666666666666629" width="345" height="56"/>
+                                        <rect key="frame" x="0.0" y="97" width="345" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="GN5-SE-JIe"/>
                                         </constraints>
@@ -38,17 +45,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="G28-eC-zN0">
+                                <rect key="frame" x="178" y="420" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="G28-eC-zN0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0fU-6A-7LU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZSn-Je-5IV" secondAttribute="trailing" constant="24" id="3Ge-Ql-eVo"/>
                             <constraint firstItem="ZSn-Je-5IV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3tG-m5-EjH"/>
                             <constraint firstItem="ZSn-Je-5IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EuZ-fq-caT"/>
+                            <constraint firstItem="G28-eC-zN0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="h0O-tB-Cfb"/>
                             <constraint firstItem="ZSn-Je-5IV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rk1-yT-yWe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="G28-eC-zN0" id="QzI-qk-WiZ"/>
+                        <outlet property="authorLbl" destination="KWk-CC-H8R" id="E6K-rk-WHO"/>
                         <outlet property="quoteLbl" destination="ixm-WD-fEc" id="Gmz-oA-6Iv"/>
                         <outlet property="refreshBtn" destination="3yH-sv-NVN" id="jsx-Ox-O9j"/>
                     </connections>

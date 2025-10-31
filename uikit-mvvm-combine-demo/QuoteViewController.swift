@@ -13,6 +13,8 @@ class QuoteViewController: UIViewController {
 
     @IBOutlet weak var refreshBtn: UIButton!
     @IBOutlet weak var quoteLbl: UILabel!
+    @IBOutlet weak var authorLbl: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let vm = QuoteViewModel()
     private let input: PassthroughSubject<QuoteViewModel.Input, Never> = .init()
@@ -35,10 +37,12 @@ class QuoteViewController: UIViewController {
                 switch event {
                 case .fetchQuoteDidSucceed(let quote):
                     self?.quoteLbl.text = quote.content
+                    self?.authorLbl.text = quote.author
                 case .fetchQuoteDidFail(let error):
                     self?.quoteLbl.text = error.localizedDescription
                 case .toggleBtn(let isEnabled):
                     self?.refreshBtn.isEnabled = isEnabled
+                    isEnabled ? self?.activityIndicator.stopAnimating() : self?.activityIndicator.startAnimating() 
                 }
             }.store(in: &cancellables)
     }
